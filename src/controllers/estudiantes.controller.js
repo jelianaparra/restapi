@@ -21,7 +21,7 @@ exports.agregarEstudiantes = (req, res) =>{
 exports.actualizarEstudiantes= (req, res) =>{
     const id = req.params.id;
     console.log(id );
-    res.json("datos actualizados");
+    res.json("datos actualizaaaados");
 }
 
 exports.eliminarEstudiantes = (req, res) =>{
