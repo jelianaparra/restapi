@@ -1,0 +1,17 @@
+GET http://localhost:3000/api/estudiantes
+
+
+###
+POST http://localhost:3000/api/estudiantes
+Content-Type: application/json
+
+{
+    "nombre": "cesar nava",
+    "correo": "cesar@coreo.com"
+}
+
+###
+PUT http://localhost:3000/api/estudiantes/456
+
+###
+DELETE http://localhost:3000/api/estudiantes/456
