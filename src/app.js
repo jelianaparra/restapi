@@ -1,7 +1,12 @@
 const express = require('express');
 const morgan = require("morgan");
+const conexionDB = require("./db.conection");
 const routerEstudiantes = require("./routes/estudiantes.routes");
+const routeMaterias = require("./routes/materias.routes");
 const app = express();
+
+//conection 
+conexionDB();
 
 //settings
 app.set("name","restapi");
@@ -14,6 +19,6 @@ app.use(morgan("dev"));
 //Calling the Routes
 app.use(express.static("public"));
 app.use("/api/estudiantes", routerEstudiantes);
-
+app.use("/api/materias", routeMaterias);
 
 module.exports = app;

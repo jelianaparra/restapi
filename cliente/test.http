@@ -6,12 +6,50 @@ POST http://localhost:3000/api/estudiantes
 Content-Type: application/json
 
 {
-    "nombre": "cesar nava",
-    "correo": "cesar@coreo.com"
+    "nombre": "julian hernan",
+    "correo": "julian@correo.com",
+    "materias": {
+        "nombre": "Matematica",
+        "nota": 100,
+        "comentario": "Muy participativo"
+    }
 }
 
 ###
-PUT http://localhost:3000/api/estudiantes/456
+PUT http://localhost:3000/api/estudiantes/60b25adccd6ef21d00399f5c
+Content-Type: application/json
+
+{
+    "nombre":" luisana borjas",
+    "correo":"luisanaa@gmail.com"
+}
 
 ###
-DELETE http://localhost:3000/api/estudiantes/456
+DELETE http://localhost:3000/api/estudiantes/60b25adccd6ef21d00399f5c
+
+
+//-------------------- Materias
+###
+GET http://localhost:3000/api/materias/60b26920549c226a88d8f026
+
+###
+POST http://localhost:3000/api/materias/60b26920549c226a88d8f026
+Content-Type: application/json
+
+ {
+        "nombre": "Fisica2",
+        "nota": 10,
+        "comentario": "necesita estudiar mas"
+    }
+
+###
+DELETE  http://localhost:3000/api/materias/60b26920549c226a88d8f026/60b26ccd4fd0fb688c3dd1a5
+
+###
+PUT http://localhost:3000/api/materias/60b26920549c226a88d8f026/60b26920549c226a88d8f027
+Content-Type:  application/json
+
+{
+    "nota":50,
+    "comentario":"falto a clase muy seguido"
+}
