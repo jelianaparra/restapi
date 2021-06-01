@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+mongoose.set('useCreateIndex', true);
 const conexionDB = async() =>{
      try{
         const DB = await mongoose.connect('mongodb://localhost:27017/test-estudiantes', {useNewUrlParser: true, useUnifiedTopology: true});

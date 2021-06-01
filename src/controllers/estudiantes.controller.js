@@ -1,5 +1,6 @@
-const Estudiantes = require("../Models/Estudiantes");
 const Estudiante = require("../Models/Estudiantes");
+const guardarArchivo = require("../utils/guardar-archivo");
+const agregarArchivo = require("../utils/guardar-archivo");
 
 exports.obtenerEstudiantes = async (req, res) =>{
     try {
@@ -11,20 +12,32 @@ exports.obtenerEstudiantes = async (req, res) =>{
 };
 
 exports.agregarEstudiantes = async (req, res) =>{
-    try {
-    const {nombre, correo, materias } = req.body;
-    console.log(nombre);
 
-    if (nombre && correo) {
-        const nuevoEstudiante = new Estudiante({ nombre,correo, materias});
-        await nuevoEstudiante.save();
-    res.json({msj: "datos insertados correctamente", id:nuevoEstudiante._id});
-    } else {
-        res.json({isOk: false, msj: "los datos son requeridos"})
-    }
-    } catch (error) {
-        res.json(error)  
-    }
+    if(req.files){
+        
+        const resp = await guardarArchivo(req.files, "expediente", "application/pdf");
+        const nombreExpediente = resp.nuevoNombre;
+        if(resp.isOk){
+            try {
+                const {nombre, correo, materias, } = req.body;
+                console.log(nombre);
+            
+                if (nombre && correo) {
+                    const nuevoEstudiante = new Estudiante({ nombre,correo, materias, nombreExpediente});
+                    await nuevoEstudiante.save();
+                res.json({msj: "datos insertados correctamente", id:nuevoEstudiante._id});
+                } else {
+                    res.json({isOk: false, msj: "los datos son requeridos"})
+                }
+                } catch (error) {
+                    res.json(error)  
+                }
+        }else{
+            res.json({error: resp.error})
+        }
+    }else{
+        res.json({error:"Debe adjuntar el expediente del estudiante en pdf"})    }
+    
 };
 
 exports.actualizarEstudiantes= async(req, res) =>{
