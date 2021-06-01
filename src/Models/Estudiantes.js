@@ -17,6 +17,12 @@ const EstudianteSchema = new Schema({
         type:String,
         required:true
     },
+    historial:[
+        {
+            procedencia: String,
+            promedio: Number
+        }
+    ],
     materias:[
         {  
             nota: Number,

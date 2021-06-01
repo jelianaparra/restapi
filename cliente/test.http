@@ -53,3 +53,22 @@ Content-Type:  application/json
     "nota":50,
     "comentario":"falto a clase muy seguido"
 }
+### 
+POST http://localhost:3000/api/historial/id del estudiante
+Content-Type: application/json
+
+{
+        "procedencia": "Colegio Juan De Dios",
+        "promedio": 80
+}
+###
+Delete http://localhost:3000/api/historial/id del estudiante/ id del historial que desea eliminar
+
+###
+PUT http://localhost:3000/api/historial/id del estudiante/ id del historial que desea Actualiza
+Content-Type: application/json
+{
+   "procedencia": "Colegio Juan De Dios",
+        "promedio": 30
+}
+}

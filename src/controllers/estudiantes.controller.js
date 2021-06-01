@@ -19,11 +19,11 @@ exports.agregarEstudiantes = async (req, res) =>{
         const nombreExpediente = resp.nuevoNombre;
         if(resp.isOk){
             try {
-                const {nombre, correo, materias, } = req.body;
+                const {nombre, correo, materias, historial } = req.body;
                 console.log(nombre);
             
                 if (nombre && correo) {
-                    const nuevoEstudiante = new Estudiante({ nombre,correo, materias, nombreExpediente});
+                    const nuevoEstudiante = new Estudiante({ nombre,correo, materias, nombreExpediente, historial});
                     await nuevoEstudiante.save();
                 res.json({msj: "datos insertados correctamente", id:nuevoEstudiante._id});
                 } else {
