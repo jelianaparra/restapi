@@ -1,7 +1,10 @@
 const Profesor = require("../Models/Profesor");
+//const passport = require('passport');
 const jwt = require("jsonwebtoken");
-exports.registrar = async (req, res) =>{
-    try {
+
+exports.signup = async (req, res) =>{
+   
+    try { 
         const {correo, clave} = req.body;
         if(correo && clave){
 
@@ -17,8 +20,8 @@ exports.registrar = async (req, res) =>{
     }
 };
 
-exports.login = async (req, res) =>{
-    try {
+   exports.login = async (req, res )=>{
+        try { 
         const {correo, clave} = req.body;
         if(correo && clave){
             const profesor = await Profesor.findOne({correo});
@@ -30,7 +33,7 @@ exports.login = async (req, res) =>{
                     const opt = {
                         expiresIn:'1h'
                     }
-                    const palabra ="palabrasecreta"
+                    const palabra= "secreto"
                     const token = jwt.sign({_id, correo}, palabra, opt)
                     res.json({token});
                     
@@ -44,5 +47,5 @@ exports.login = async (req, res) =>{
         }
     } catch (error) {
         res.json({error});
-    }
-}
+ }
+};

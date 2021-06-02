@@ -1,10 +1,9 @@
-const { Router } = require("express");
-const ctrProfesores = require("../controllers/profesores.controllers");
-
+const { Router } = require('express')
+const ctrlProfesor = require('../controllers/profesores.controllers')
 const routerProfesor = Router();
 
-routerProfesor.post("/registrar", ctrProfesores.registrar);
+routerProfesor.post('/signup', ctrlProfesor.signup);
 
-routerProfesor.post("/login", ctrProfesores.login);
+routerProfesor.post('/login', ctrlProfesor.login);
 
 module.exports =routerProfesor;

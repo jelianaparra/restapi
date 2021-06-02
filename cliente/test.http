@@ -1,5 +1,5 @@
 GET http://localhost:3000/api/estudiantes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGIzZjA0MjM5YWRiMjMzZDAxMzUyYTciLCJjb3JyZW8iOiJqb3NlbHVpc21vbnRlcm9AZ21haWwuY29tIiwiaWF0IjoxNjIyNDEwMTY2LCJleHAiOjE2MjI0MTM3NjZ9.nsAdPE_Uc6z6WGL8bnci-Bg8blHOvXuUDoedmE0SGh4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGIzZjA0MjM5YWRiMjMzZDAxMzUyYTciLCJjb3JyZW8iOiJqb3NlbHVpc21vbnRlcm9AZ21haWwuY29tIiwiaWF0IjoxNjIyNjQ2MTYzLCJleHAiOjE2MjI2NDk3NjN9.wepM60xi1cyClJVbz4z7LISL3UQW2Vxs-bkj_Yde0tY
 
 ###
 POST http://localhost:3000/api/estudiantes
@@ -8,11 +8,16 @@ Content-Type: application/json
 {
     "nombre": "julian hernan",
     "correo": "julian@correo.com",
-    "materias": {
+    "historial":{
+        "procedencia": "Colegio Juan De Dios",
+        "promedio": 80
+    },
+     "materias": {
         "nombre": "Matematica",
         "nota": 100,
         "comentario": "Muy participativo"
     }
+   
 }
 
 ###
@@ -37,7 +42,7 @@ POST http://localhost:3000/api/materias/60b26920549c226a88d8f026
 Content-Type: application/json
 
  {
-        "nombre": "Fisica2",
+        "nombre": "Fisica8",
         "nota": 10,
         "comentario": "necesita estudiar mas"
     }

@@ -61,7 +61,7 @@ exports.eliminarEstudiantes = async(req, res) =>{
     const id = req.params.id;
     console.log(id);
     const eliminado = await Estudiante.findOneAndUpdate(id,{activo: false})
-    res.status(200).json({msj:"Dato borrado de anera satisfactoria",isOk: true});
+    res.status(200).json({msj:"Datos borrado de anera satisfactoria",isOk: true});
   } catch (error) {
       res.status(500).json(error);      
   }
